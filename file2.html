@@ -1,0 +1,34 @@
+<!<!doctype html>
+<html>
+    <head>
+        <title>Form Output</title>
+        <style>
+            body
+            {
+                background-color: powderblue;
+            }
+            .data
+            {
+                padding-top: 00px;
+                 border: 3px solid black;
+                 width: 400px;
+                 height: 300px;
+            }
+        </style>
+    </head>
+    <center>
+    <body>
+        <div class="data">
+            <h2> Data </h2>
+        <?php
+        echo "First Name: ".$_POST['fname']."</br>";
+        echo "Middle Name: ".$_POST['mname']."</br>";
+        echo "Last Name: ".$_POST['lname']."</br>";
+        ?>
+            
+            
+        </div>
+        <p><a href="choose.php"  >Click Here</a></p>
+    </body>
+    </center>
+</html>
