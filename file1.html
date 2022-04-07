@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form</title>
+        <style>
+            body
+            {
+                background-color: lightgreen;
+            }
+            @media only screen and (max-width: 600px)
+            body
+            {
+                background-color: lightblue;
+            }
+
+            form
+            {
+                border: 3px solid black;
+                height: 500px;
+                width: 500px;
+                padding-top: 100px;
+                background-color: lightseagreen;
+            }
+
+            label
+            {
+                width: 150px;
+                display: inline-block;
+            }
+            
+        </style>
+        <script>
+            function blur1()
+            {
+                var x = document.getElementById("fname");
+                var y = document.getElementById("mname");
+                var z = document.getElementById("lname");
+                x.value = x.value.toUpperCase();
+                y.value = y.value.toUpperCase();
+                z.value = z.value.toUpperCase();
+            }
+
+            function focus1(x)
+            {
+                document.getElementById(x).style.background = "powderblue";
+            }
+            function test()
+            {
+                document.getElementById("test").innerHTML = "Double Click";
+            }
+            function validateform() {
+                
+//...........................Variable Declaration..........................
+                //var var_name                                                                                                                                                                                                                 = doucment.form_name.field_name.value;
+                var fname = document.form.fname.value;
+                var mname = document.form.mname.value;
+                var password = document.form.password.value;
+
+                var password1 = document.form.password1.value;
+
+                //var password = document.getElementById("pw").value;
+
+                var temp = document.getElementById("fname").value;
+//...........................Character Confirmation...........................
+                var filter = /^[A-Z a-z]+$/;
+                if (fname == null || fname == "")
+                {
+                    alert("Name Field Must Be Required!");
+                    //   return false;
+                } else if (mname == null || mname == "")
+                {
+                    alert("Mname Field Is Required");
+                    //return flase;
+                }
+
+//...........................Password Length Confirmation...........................
+
+                if (password.length < 8 || password == "")
+                {
+                    alert("Password Length Must Be Atleast 8 Characters");
+                    return false;
+                }
+
+                if (!filter.test(temp))
+                {
+                    alert("Only Alphabetic Character.....");
+                    return false;
+                }
+
+
+//...........................Password Confirmation...........................
+
+                if (password == password1)
+                {
+                    alert("Password Is Correct");
+                    return false;
+                } else
+                {
+                    alert("YOu are good to go.....");
+                    return false;
+                }
+
+            }
+
+        </script>
+    </head>
+    <center>
+        <body>
+            <div id="form">
+                <form name="form" action="op.php" method="post" onsubmit="validateform()"  >
+                    <h2> Regestration From </h2>
+                    <label> First Name </label>
+                    <input type="text" id="fname" name="fname" onblur="blur1()" onfocus="focus1(this.id)" placeholder="First Name" /> <br>
+                    <br>
+                    <label> Middle Name </label>
+                    <input type="text" name="mname" id="mname" onblur="blur1()" onfocus="focus1(this.id)" placeholder="Middle Name" /> <br>
+                    <br>
+                    <label> Last Name </label>
+                    <input type="text" name="lname" id="lname" onblur="blur1()" onfocus="focus1(this.id)" placeholder="Last Name" /> <br>
+                    <br>
+                    
+                    <label>Password</label>
+                    <input type="password" id="pw" name="password" onfocus="focus1(this.id)" placeholder="Enter Password" /> <br>
+                    <br>
+                    <label> Confirm Password </label>
+                    <input type="password" id="pw1" name="password1" onfocus="focus1(this.id)" placeholder="Re-Enter Password"> <br>
+                    <br>
+                    <input type="submit" name="submit" value="submit" /> &nbsp; &nbsp;
+                    <input type="reset" name="cancle" value="Cancle" />
+                </form>
+            </div>
+        </body>
+    </center>
+</html>;
