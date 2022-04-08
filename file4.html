@@ -1,0 +1,64 @@
+<!<!doctype html>
+<html>
+    <head>
+    <style>
+        body
+        {
+            background-color: powderblue;
+            border: 2px solid black;
+            
+        }
+        
+        label
+        {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+        <title> Commision </title>
+        <script>
+            function ot()
+            {
+                var x = parseInt(document.getElementById('amt').value);
+                var res = 0;
+                var com1 = document.getElementById('com');
+                if(x > 50000)
+                {
+                    res = ((x*20)/100);
+                    
+                }
+                else if(x < 50000 && x>=25000)
+                {
+                    res = ((x*15)/100);
+                }
+                else
+                {
+                    res = ((x*10)/100);
+                }
+                com1.innerHTML="res is: " + res;
+            }
+        </script>
+    </head>
+    <Center>
+    <body>
+        <div class="comm">
+            <h3>Commisson Calculation</h3>
+            
+            <label> ID </label>
+            <input type="text" name="sid" id="sid" placeholder="Person ID"><br><!-- comment -->
+            <br>
+            <label> Name </label>
+            <input type="text" name="sname" id="sname" placeholder="Person name" ><br><!-- comment -->
+            <br>
+            <label>Slaes Amount </label>
+            <input type="number" name="amt" id="amt" placeholder="Enter Amount"><br><!-- comment -->
+            <br>
+            
+            <input type="button" name="submit" value="submit" onclick="ot()"/><br>
+            <div id="com"></div>
+        </div>
+    </body>
+    </center>
+</html>
+
+
